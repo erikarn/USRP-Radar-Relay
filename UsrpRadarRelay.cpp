@@ -23,7 +23,8 @@
 UsrpRadarRelay::UsrpRadarRelay()
 {
 	DLOG << "Creating the usrp device..." << std::endl;
-	usrp = uhd::usrp::multi_usrp::make(std::string(""));
+	// I'm not sure why this isn't creating anything by default? -adrian
+	usrp = uhd::usrp::multi_usrp::make(std::string("addr=192.168.10.2"));
 	DLOG << "Using Device: " << usrp->get_pp_string() << std::endl;
 
 	num_channels = usrp->get_tx_num_channels();
